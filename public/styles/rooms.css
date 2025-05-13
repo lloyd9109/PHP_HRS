@@ -1,0 +1,838 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0; /* Ensure body takes full width */
+    padding: 0; /* Remove default padding */
+    background-color: #d5deef;     
+}
+body.modal-open {
+    overflow: hidden;
+}
+.module{
+    background-image: url('relaxing.jpg'); /* Replace with your image URL */
+    background-size: cover; /* Ensure the background image covers the entire module */
+    background-position: bottom center; /* Center the image within the module */
+    background-attachment: fixed; /* Make the background fixed while scrolling */
+    border-image: fill 0 linear-gradient(#0001,#000);
+    color: white;
+    text-align: center;
+    padding: 100px 10px;
+    position: relative; 
+}
+.module h1 {
+    font-size: 40px;
+    margin-bottom: 30px;
+    margin-top: 200px;
+}
+
+
+/* Search Module Styling */
+.search-module {
+    display: flex;
+    align-items: stretch; /* Make all items stretch to the same height */
+    padding: 0; /* Remove padding to align boxes with the edges */
+    background-color: #fff;
+    border: 2px solid #0f969c; /* Outer border */
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 1100px; /* Increased max-width for a better layout */
+    margin: auto;
+    position: absolute; /* Make the search module absolute */
+    bottom: 20px; /* Position it at the bottom */
+    height: 50px;
+    left: 0;
+    right: 0; /* Align it horizontally to the parent */
+}
+
+/* Common Box Styling for Inputs */
+.search-module .box {
+    display: flex;
+    align-items: center;
+    border-right: 2px solid #0f969c; /* Box border color */
+    flex: 1; /* Ensure equal width for all boxes */
+}
+
+/* Remove the right border from the last box */
+.search-module .box:last-child {
+    border-right: none;
+}
+
+/* Room Search Bar */
+.room-search-bar input {
+    width: 100%;
+    border: none;
+    background: transparent; /* Make the input blend into the box */
+    outline: none;
+    padding: 10px; /* Padding to enhance input height */
+}
+
+/* Combined Date Picker */
+.date-picker {
+    display: flex;
+    align-items: center;
+}
+
+.date-picker input {
+    width: 100%; /* Adjust width for better layout */
+    border: none; /* Remove border */
+    background: transparent; /* Make the input blend into the box */
+    outline: none; /* Remove outline */
+    padding: 10px; /* Padding to enhance input height */
+    color: #333; /* Change text color for better visibility */
+}
+
+/* Specific Flatpickr styles to remove outline */
+.flatpickr-input {
+    border: none !important; /* Remove border */
+    outline: none !important; /* Remove outline */
+    background: transparent !important; /* Ensure background is transparent */
+}
+
+/* Remove focus outline */
+.flatpickr-input:focus {
+    outline: none !important; /* Ensure no outline when focused */
+}
+
+/* Styling for Separator */
+.separator {
+    margin: 0 5px;
+}
+
+/* Styling for Guest/Room Selection */
+.guest-room-selection select {
+    width: 100%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    padding: 10px; /* Padding to enhance select height */
+    
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+    /* Adjust the padding and margins for smaller screens */
+    .module h1 {
+        font-size: 28px; /* Smaller font size for small screens */
+        margin-top: 100px; /* Adjust top margin for smaller screens */
+    }
+
+    .search-module {
+        flex-direction: column; /* Stack the search boxes vertically */
+        max-width: 90%; /* Use a smaller width */
+        height: auto;
+        padding: 20px; /* Add padding for better spacing */
+    }
+
+    .search-module .box {
+        border-right: none; /* Remove the right border on small screens */
+        margin-bottom: 10px; /* Add space between search boxes */
+    }
+
+    .search-module .box:last-child {
+        margin-bottom: 0; /* Remove margin from the last box */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .module {
+        padding: 80px 5px; /* Adjust padding for smaller screens */
+    }
+
+    .module h1 {
+        font-size: 24px; /* Even smaller font size for very small screens */
+        margin-top: 50px; /* Adjust top margin */
+    }
+
+    .search-module {
+        max-width: 100%; /* Full width on very small screens */
+        padding: 15px; /* Adjust padding */
+    }
+
+    .search-module .box {
+        flex-direction: column; /* Stack input fields vertically */
+        margin-bottom: 15px; /* Space between input fields */
+    }
+
+    .search-module .box:last-child {
+        margin-bottom: 0; /* Remove the bottom margin for the last box */
+    }
+}
+
+.main-content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.room-cards {
+    font-family: 'Poppins', sans-serif;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 20px;
+    padding: 20px;
+}
+
+@media (max-width: 992px) {
+    .room-cards {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards per row on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .room-cards {
+        grid-template-columns: 1fr; /* 1 card per row on small screens */
+    }
+}
+
+.room-card {
+    position: relative;
+    width: 100%; /* Adjust to fit within grid column */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 300px; /* Set a fixed height for uniformity */
+}
+
+.room-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image fully covers the card */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.room-card:hover img {
+    transform: scale(1.05); /* Add zoom effect on hover */
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 1; /* Set opacity to 1 by default */
+    transition: opacity 0.3s ease;
+}
+
+.card-overlay h3 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    font-weight: 600; /* Semi-bold for the room name */
+    text-transform: uppercase; /* All caps for a more formal feel */
+    letter-spacing: 1px; /* Slightly spaced letters for readability */
+}
+
+.card-overlay button {
+    background: transparent;
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.card-overlay button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+.container {
+    width: 800px;
+    background-color: white;
+    padding: 20px;
+    padding-right: 20px; /* Ensure space for scrollbar */
+    border-radius: 5px;
+    display: none;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    color: #333;
+    position: fixed; /* Fixed positioning for overlay */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for proper centering */
+    z-index: 600; /* Ensure it appears above other content */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+    max-height: 90vh; /* Limit max height to viewport height */
+    overflow-y: auto; /* Make the container scrollable */
+}
+
+
+.dimmed-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 200; /* Below the container but above the main content */
+}
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #6da5c0;
+}
+.image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+.content .info, .content .contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.content .info {
+    border-right: 0.5px solid #939597; /* Adds the vertical border between columns */
+    padding-right: 20px; /* Adds padding to the right side */
+}
+
+.info h3 {
+    border-bottom: 0.5px solid #939597;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #A57B4E;
+}
+
+.contact h3 {
+    font-size: 14px;
+}
+
+.info h4 {
+    font-size: 14px;
+    margin-bottom: 2px;
+    margin-top: 5px;
+}
+
+.info ul, .contact ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.info ul {
+    margin-bottom: 20px;
+}
+.button{
+background-color: #0f969c;
+border: none;
+color: white;
+padding: 10px;
+text-align: center;
+text-decoration: none;
+font-weight: bold;
+border-radius: 5px;
+width: 120px;
+margin-top: 10px;
+transition: all 0.3s ease; /* Smooth transition for the hover effect */
+}
+
+/* Hover effect for the button */
+.button:hover{
+background-color: #0c7075; /* Darken the background color */
+color: #fff; /* Keep text color white */
+transform: scale(1.05); /* Slightly increase the size of the button */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+}
+
+/* New style for two-column layout */
+.info ul.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    padding-left: 30px;
+}
+
+.info ul.two-column li {
+    list-style-type: disc;
+    padding-left: 2px;
+}
+
+/* Styling for price, availability, and room size section */
+.info .details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    top: 0;
+}
+
+.info .details div {
+    font-size: 14px;
+    color: #555;
+}
+
+.info .details h3 {
+    color: #A57B4E;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+/* Close icon styles */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #0f969c;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+.close-btn:hover {
+    color: #FF5733; /* Change color on hover */
+}
+
+/* Scrollbar styling (for modern browsers) */
+.container::-webkit-scrollbar {
+    width: 3px;
+}
+
+.container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.booking-module-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    display: none; /* Hidden by default */
+    z-index: 1040; /* Behind the booking module */
+}
+
+.booking-module {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    z-index: 1050; /* On top of the background overlay */
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.booking-module .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.booking-module .close-btn:hover {
+    transform: scale(1.2); /* Slight zoom on hover */
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spacing between elements */
+}
+
+.booking-form h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #444;
+}
+
+.booking-form .form-control {
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-form .form-control label {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.booking-form .form-control input,
+.booking-form .form-control select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.booking-form .form-control input:focus,
+.booking-form .form-control select:focus {
+    border-color:  #0f969c; 
+    outline: none;
+}
+
+
+
+/* Error message styling */
+.booking-form .error-message {
+    font-size: 0.8rem;
+    color: red;
+    margin-top: 5px;
+}
+
+.booking-form .title {
+    text-align: center; /* Centers the title horizontally */
+    margin-bottom: 20px; /* Space below the title */
+    font-size: 24px; /* Optional: Adjust the font size */
+    font-weight: bold; /* Optional: Make the title bold */
+}
+
+.booking-form .form-control button {
+    display: block;  /* Makes the button a block element */
+    margin: 0 auto;  /* Centers the button horizontally */
+    width: auto;     /* Ensure the width is auto so the button size adjusts */
+    font-size: 18px; /* Increases the font size */
+    padding: 10px 25px; /* Increases padding (height and width) for larger button */
+    border-radius: 8px; /* Optional: Adds rounded corners for aesthetics */
+}
+
+.custom-date-picker {
+    padding: 10px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 6px !important;
+    font-size: 16px !important;
+    transition: border-color 0.3s !important;
+}
+
+.custom-date-picker:focus {
+    border-color:  #0f969c!important;
+    outline: none !important;
+}
+
+
+/* Fade-in animation for the booking module */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .booking-form {
+        padding: 20px;
+       }
+    }
+
+#guests {
+    -webkit-appearance: none; /* Removes default arrow for customization */
+    -moz-appearance: none; /* Removes default arrow for Firefox */
+    appearance: none; /* Standard appearance property */
+    background-color: #fff; /* Adjust as needed */
+    padding-right: 25px; /* Adds padding to position the text correctly */
+    position: relative;
+
+}
+
+#guests::after {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Adjust this value to move the arrow left or right */
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.notification {
+    position: fixed; /* Use fixed positioning to keep it at the top */
+    top: 20px; /* Adjust as necessary for spacing from the top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center the notification */
+    background-color: red; /* Semi-transparent red */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    display: none; /* Hide by default */
+    z-index: 1000; /* Ensure it's above other content */
+    opacity: 0; /* Start invisible for fade effect */
+    transition: opacity 0.5s ease; /* Transition for fade effect */
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 10000;
+    transition: visibility 0s, opacity 0.5s ease; /* Slower opacity for smooth fade */
+}
+
+/* Popup content */
+.popup-content {
+    background: #fff;
+    padding: 30px 30px 20px; /* Adjusted padding for spacing */
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transform: translateY(-20px);
+    transition: opacity 0.2 ease, transform 0.2s ease;
+}
+
+/* Check icon */
+.popup-content .icon {
+    background-color: #8cdc4a; /* Green color */
+    color: white; /* White checkmark */
+    border-radius: 50%; /* Make it a circle */
+    width: 70px; /* Circle size */
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px; /* Checkmark size */
+    position: absolute;
+    top: -35px; /* Moves the icon upwards */
+    left: 50%; /* Centers horizontally */
+    transform: translateX(-50%); /* Centers the icon exactly */
+}
+
+.popup-content .icon svg {
+    width: 36px;
+    height: 36px;
+    fill: #fff;
+}
+
+/* Message styles */
+.popup-content h2 {
+    font-size: 26px;
+    color: #333;
+    margin-top: 35px; /* Adjusted for spacing */
+    margin-bottom: 10px;
+    
+}
+
+.popup-content p {
+    font-size: 16px;
+    color: #666;
+    margin: 20px 0 50px;;
+    line-height: 1.5;
+}
+
+/* OK button */
+.popup-content button {
+    background-color: #64d36d;
+    color: #fff;
+    padding: 12px 0;
+    width: 300px; /* Fixed width for a more compact look */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.popup-content button:hover {
+    background-color: #57c25f; /* Slightly darker green on hover */
+}
+
+/* Show popup */
+.popup-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Space between the form controls */
+}
+
+.form-control {
+    width: 100%; /* Default width */
+}
+
+.half-width {
+    width: 48%; /* Adjust width to half of the container */
+}
+
+.room-category {
+    background-color: #1A1A2E;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping of items for smaller screens */
+}
+.room-category label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0f969c;
+    margin-right: 10px;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Helvetica', sans-serif;
+}
+
+.filter-nav {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    justify-content: flex-start; /* Align buttons to the left on small screens */
+}
+
+.filter-btn {
+    background-color: #6da5c0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: 'Helvetica', sans-serif;
+    color: white;
+    position: relative; 
+    white-space: nowrap;
+}
+.filter-btn:hover {
+    background-color:#0c7075;
+    color: #fff;
+}
+
+.filter-btn.active {
+    background-color:#294d61;
+    color: white;
+} 
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+    /* Adjust label font size and margin for smaller screens */
+    .room-category label {
+        font-size: 16px;
+        margin-right: 5px;
+    }
+
+    /* Stack the filter buttons vertically for smaller screens */
+    .filter-nav {
+        justify-content: center; /* Center the buttons on smaller screens */
+        gap: 8px; /* Reduce the gap between buttons */
+    }
+
+    .filter-btn {
+        padding: 8px 16px; /* Reduce padding for smaller buttons */
+        font-size: 14px; /* Smaller font size for mobile screens */
+        width: 48%; /* Make each button take up around half the width, so two buttons fit per row */
+        margin-bottom: 10px; /* Add space between rows */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Further reduce font size for very small screens */
+    .room-category label {
+        font-size: 14px;
+    }
+
+    /* Stack the buttons with even smaller gaps on very small screens */
+    .filter-nav {
+        justify-content: center; /* Center the buttons */
+        gap: 5px; /* Even smaller gap between buttons */
+    }
+
+    .filter-btn {
+        padding: 6px 12px; /* Even smaller padding */
+        font-size: 12px; /* Even smaller font size */
+        width: 30%; /* Make each button take up 30% width, so three buttons fit in one row */
+        margin-bottom: 8px; /* Add space between rows */
+    }
+}
+
+
+.room-cards {
+    position: relative; /* Make the parent container a positioning context */
+}
+
+#no-rooms-message {
+    position: absolute; /* Position the message absolutely within the parent container */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust positioning to truly center the element */
+    font-size: 1.5em;
+    color: #666;
+    font-weight: bold;
+    text-align: center;
+}
+
+.floating-message {
+    position: fixed;
+    margin-top: 100px; /* Adjusts how far down from the top it appears */
+    left: 50%; /* Centers the message horizontally */
+    transform: translateX(-50%); /* Ensures perfect horizontal centering */
+    background-color: #f8d7da; /* Background color */
+    color: #721c24; /* Text color */
+    padding: 10px 20px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+    font-size: 14px; /* Font size */
+    z-index: 9999; /* Ensures it appears above all other elements */
+    opacity: 1; /* Fully visible initially */
+    animation: floatMessage 5s forwards; /* Animation to fade out after 5 seconds */
+}
+
+@keyframes floatMessage {
+    0% {
+        opacity: 1;
+        top: 10px;
+    }
+    50% {
+        opacity: 0.8;
+        top: 5px; /* Slightly move upward during animation */
+    }
+    100% {
+        opacity: 0;
+        top: 0; /* Move further upward and fade out */
+    }
+}

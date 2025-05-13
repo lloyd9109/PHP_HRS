@@ -1,0 +1,182 @@
+/* Chatbox container */
+.chatbox-container {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    width: 350px;
+    max-height: 500px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    opacity: 0; /* Start as invisible */
+    transform: translateY(20px); /* Start with a slight offset */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Chatbox Header */
+.chatbox-header {
+    background-color: #d4af37;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+    font-size: 16px;
+}
+
+.chatbox-header h3 {
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.chatbox-header h3,
+.close-btn {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Chatbox Body */
+.chatbox-body {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    max-height: 350px;
+    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column; /* Align messages vertically */
+}
+.message {
+    margin: 10px 0;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    max-width: 80%; /* Allow messages to take up to 80% of the container's width */
+    display: inline-block; /* Ensure that messages can grow with content */
+}
+.bot-message {
+    background-color: #e2e2e2;
+    text-align: left;
+    align-self: flex-start;  /* Ensure bot message stays left */
+}
+
+.user-message {
+    background-color: #007bff;
+    color: white;
+    text-align: right;
+    align-self: flex-end;  /* Ensure user message stays right */
+}
+/* Chatbox Footer */
+.chatbox-footer {
+    display: flex;
+    padding: 12px;
+    background-color: #f1f1f1;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    border-radius: 0 0 10px 10px;
+}
+
+.chatbox-footer input {
+    width: 80%;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.chatbox-footer input:focus {
+    border-color: #007bff;
+}
+
+.chatbox-footer button {
+    padding: 8px 15px;
+    background-color:  #d4af37;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.chatbox-footer button:hover {
+    background-color: #b68d29;
+}
+
+
+/* Open Chatbox Button */
+.open-chatbox-btn {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    background-color: #d4af37;
+    color: white;
+    padding: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    z-index: 1000;
+}
+
+.open-chatbox-btn:hover {
+    background-color: #b68d29;
+}
+
+/* For when the chatbox is visible */
+.chatbox-container.show {
+    opacity: 1;
+    transform: translateY(0); /* Slide into place */
+}
+/* Style the scrollbar */
+.chatbox-body::-webkit-scrollbar {
+    width: 6px;  /* Width of the scrollbar */
+}
+
+.chatbox-body::-webkit-scrollbar-track {
+    background-color: #f1f1f1;  /* Background color of the track */
+    border-radius: 10px;  /* Rounded corners for the track */
+}
+
+.chatbox-body::-webkit-scrollbar-thumb {
+    background-color: #d4af37;  /* Color of the scrollbar thumb */
+    border-radius: 10px;  /* Rounded corners for the thumb */
+    border: 2px solid #f9f9f9;  /* Border around the thumb */
+}
+
+.chatbox-body::-webkit-scrollbar-thumb:hover {
+    background-color: #b68d29;  /* Darker color when hovered */
+}
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .chatbox-container {
+        width: 90%;
+        bottom: 20px;
+    }
+
+    .open-chatbox-btn {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .chatbox-footer input {
+        width: 70%;
+    }
+}

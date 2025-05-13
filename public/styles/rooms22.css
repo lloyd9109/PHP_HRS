@@ -1,0 +1,352 @@
+body {
+    font-family: 'Arial', sans-serif;
+
+}
+
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%; 
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.module{
+    background-color: #0044cc;
+    color: white;
+    text-align: center;
+    padding: 50px 10px;
+}
+.module h1 {
+    font-size: 40px;
+    margin-bottom: 30px;
+    margin-top: 100px;
+}
+
+
+/* Search Module Styling */
+.search-module {
+    display: flex;
+    align-items: stretch; /* Make all items stretch to the same height */
+    padding: 0; /* Remove padding to align boxes with the edges */
+    background-color: #fff;
+    border: 2px solid #FFC107; /* Outer border */
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 1100px; /* Increased max-width for a better layout */
+    margin: auto;
+    height: 50px;
+}
+
+/* Common Box Styling for Inputs */
+.search-module .box {
+    display: flex;
+    align-items: center;
+    border-right: 2px solid #FFC107; /* Box border color */
+    flex: 1; /* Ensure equal width for all boxes */
+}
+
+/* Remove the right border from the last box */
+.search-module .box:last-child {
+    border-right: none;
+}
+
+/* Room Search Bar */
+.room-search-bar input {
+    width: 100%;
+    border: none;
+    background: transparent; /* Make the input blend into the box */
+    outline: none;
+    padding: 10px; /* Padding to enhance input height */
+}
+
+/* Combined Date Picker */
+.date-picker {
+    display: flex;
+    align-items: center;
+}
+
+.date-picker input {
+    width: 100%; /* Adjust width for better layout */
+    border: none; /* Remove border */
+    background: transparent; /* Make the input blend into the box */
+    outline: none; /* Remove outline */
+    padding: 10px; /* Padding to enhance input height */
+    color: #333; /* Change text color for better visibility */
+}
+
+/* Specific Flatpickr styles to remove outline */
+.flatpickr-input {
+    border: none !important; /* Remove border */
+    outline: none !important; /* Remove outline */
+    background: transparent !important; /* Ensure background is transparent */
+}
+
+/* Remove focus outline */
+.flatpickr-input:focus {
+    outline: none !important; /* Ensure no outline when focused */
+}
+
+/* Styling for Separator */
+.separator {
+    margin: 0 5px;
+}
+
+/* Styling for Guest/Room Selection */
+.guest-room-selection select {
+    width: 100%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    padding: 10px; /* Padding to enhance select height */
+    
+}
+
+/* Search Button Styling */
+.search-btn {
+    padding: 10px 20px; /* Adjusted padding */
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0; /* Round only the right corners */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #0056b3;
+}
+
+.main-content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.room-card {
+
+    background-color: white;
+    color: black;
+    border: 2px solid  #FFC107;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    max-width: 350px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column; 
+    transition: transform 0.2s, box-shadow 0.2s;
+
+}
+
+.card-img-top{
+    width: 100%;
+    height: 200px; 
+    object-fit: cover;
+}
+
+.room-card-content {
+    flex: 1;
+    margin-top: -20px;
+    padding: 10px;
+
+}    
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.card-text {
+    font-size: 16px;
+    color: #000000bc;
+    margin-bottom: 8px;
+}
+
+.room-card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+}
+
+.book-now-btn {
+    padding: 12px 30px;
+    background-color: #28a745; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Slightly rounded corners */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 20px auto; /* Centering the button */
+    width: 50%; /* Makes the button more prominent */
+    display: block; /* Ensures block-level centering */
+    text-align: center; /* Centers text */
+    margin-top: 0;
+}
+
+.book-now-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-3px); /* Slight lift effect on hover */
+}
+
+
+/* Responsive Styling for Room Cards */
+ 
+@media (max-width: 1024px) {
+        .cards-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .cards-container {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Form styling */
+#bookingForm label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#bookingForm input, #bookingForm select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background-color: #218838;
+}
+
+/* Explore Philippines Section */
+.explore-section {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.explore-section h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.explore-section p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.explore-grid-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.explore-grid {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: calc(140%); /* Adjust the grid width to accommodate all cards */
+}
+
+.destination-card {
+    text-align: center;
+    width: calc(100% / 6); /* 6 visible cards at a time */
+    box-sizing: border-box;
+    padding: 5px; /* Reduced padding to decrease space between cards */
+    margin: 0 5px; /* Reduced margin between cards */
+}
+
+.destination-card img {
+    width: 320px;
+    height: 160px;
+    object-fit: cover;  /* Ensures the image fills the container and is centered */
+    border-radius: 8px;
+    max-width: 100%;  /* Ensures the image is scaled down if necessary */
+    max-height: 100%; /* Ensures the image is scaled down if necessary */
+}
+
+.destination-card h3 {
+    font-size: 16px;
+    margin: 10px 0 5px;
+}
+
+.destination-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Navigation Arrows */
+.arrow {
+    position: absolute;
+    top: 35%;
+    transform: translateY(-50%);
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 25px;
+    z-index: 1;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.arrow.left {
+    left: 1px;
+}
+
+.arrow.right {
+    right: 1px;
+}
+
+.arrow:hover {
+    background-color: rgba(240, 240, 240, 1);
+    transform: translateY(-50%) scale(1.1);
+}

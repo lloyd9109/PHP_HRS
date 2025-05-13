@@ -1,0 +1,505 @@
+.notification {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    animation: fadeOut 4s forwards;
+    text-align: center;
+    max-width: 80%;
+}
+
+.notification.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+}
+
+.header {
+    background-color: #05161a;
+    color: #fff;
+    padding: 25px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.header.scrolled {
+    background-color: #003366;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.header-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex: 1;
+    color: #6da5c0;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger i {
+    font-size: 1.5em;
+    color: #0f969c;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex: 5;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    position: relative;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.nav-links a:hover, .nav-links .active {
+    text-decoration: none;
+    background-color: #0f969c;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    order: 3;
+}
+
+.settings-icon {
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.2em;
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 60px;
+    right: 180px;
+    background-color: #fff;
+    color: #333;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 100;
+}
+
+.dropdown-menu a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    margin: 5px 0;
+}
+
+.dropdown-menu .dropdown-divider {
+    height: 1px;
+    background-color: #444;
+    margin: 8px 0;
+    width: 100%;
+    border: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1em;
+}
+
+.user-info i {
+    font-size: 1.2em;
+    color: #0f969c;
+}
+
+.auth-button {
+    background-color: #0f969c;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-button i {
+    font-size: 1.3rem;
+}
+
+.auth-button:hover {
+    background-color: #072e33;
+}
+
+.auth-button:focus {
+    outline: none;
+}
+
+.auth-button:active {
+    background-color: #0f969c;
+}
+
+.auth-button span {
+    margin-left: 5px;
+}
+
+.floating-signup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #05161a;
+    color: white;
+    padding: 20px 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 1.2em;
+    width: auto;
+    text-align: center;
+    z-index: 100;
+}
+
+.floating-signup a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 5px 10px;
+    background-color: #0f969c;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.floating-signup a:hover {
+    background-color: #6da5c0;
+}
+
+.floating-signup p {
+    margin: 0;
+}
+
+.floating-signup:hover {
+    background-color: #0c7075;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.header.scrolled {
+    background-color: #003366;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        justify-content: space-between;
+        font-size:0.7em;
+    }
+
+    .hamburger {
+        display: block;
+        margin-right:10px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        background-color: #0B1B32;
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 9;
+    }
+
+    .floating-signup {
+        padding: 15px 20px;
+        font-size: 1em;
+    }
+
+    .floating-signup a {
+        font-size: 0.9em;
+        padding: 4px 8px;
+    }
+
+    .auth-button {
+        padding: 8px 15px;
+        font-size: 0.9em;
+        margin-right:40px;
+    }
+
+    .user-info, .settings-icon {
+        display: flex;
+        align-items: center;
+        font-size: 1.2em;
+        color: #fff;
+        margin-right: 40px;
+    }
+
+    .dropdown-menu {
+        top: 50px;
+        right: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-button {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+    .floating-signup, .auth-button {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+
+    .floating-signup a, .auth-button {
+        font-size: 0.8em;
+        padding: 3px 6px;
+    }
+}
+
+
+/* Chatbox container */
+.chatbox-container {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    width: 350px;
+    max-height: 500px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    opacity: 0; /* Start as invisible */
+    transform: translateY(20px); /* Start with a slight offset */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Chatbox Header */
+.chatbox-header {
+    background-color: #0f969c;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+    font-size: 16px;
+}
+
+.chatbox-header h3 {
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.chatbox-header h3,
+.close-btn {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Chatbox Body */
+.chatbox-body {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    max-height: 350px;
+    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column; /* Align messages vertically */
+}
+.message {
+    margin: 10px 0;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    max-width: 80%; /* Allow messages to take up to 80% of the container's width */
+    display: inline-block; /* Ensure that messages can grow with content */
+}
+.bot-message {
+    background-color: #e2e2e2;
+    text-align: left;
+    align-self: flex-start;  /* Ensure bot message stays left */
+}
+
+.user-message {
+    background-color:  #0f969c;
+    color: white;
+    text-align: right;
+    align-self: flex-end;  /* Ensure user message stays right */
+}
+/* Chatbox Footer */
+.chatbox-footer {
+    display: flex;
+    padding: 12px;
+    background-color: #f1f1f1;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    border-radius: 0 0 10px 10px;
+}
+
+.chatbox-footer input {
+    width: 80%;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.chatbox-footer input:focus {
+    border-color: #007bff;
+}
+
+.chatbox-footer button {
+    padding: 8px 15px;
+    background-color:  #0f969c;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.chatbox-footer button:hover {
+    background-color: #0c7075;
+}
+
+
+/* Open Chatbox Button */
+.open-chatbox-btn {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    background-color: #0f969c;
+    color: white;
+    padding: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    z-index: 1000;
+}
+
+.open-chatbox-btn:hover {
+    background-color: #0c7975;
+}
+
+/* For when the chatbox is visible */
+.chatbox-container.show {
+    opacity: 1;
+    transform: translateY(0); /* Slide into place */
+}
+/* Style the scrollbar */
+.chatbox-body::-webkit-scrollbar {
+    width: 6px;  /* Width of the scrollbar */
+}
+
+.chatbox-body::-webkit-scrollbar-track {
+    background-color: #f1f1f1;  /* Background color of the track */
+    border-radius: 10px;  /* Rounded corners for the track */
+}
+
+.chatbox-body::-webkit-scrollbar-thumb {
+    background-color: #0f969c;  /* Color of the scrollbar thumb */
+    border-radius: 10px;  /* Rounded corners for the thumb */
+    border: 2px solid #f9f9f9;  /* Border around the thumb */
+}
+
+.chatbox-body::-webkit-scrollbar-thumb:hover {
+    background-color: #b68d29;  /* Darker color when hovered */
+}
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .chatbox-container {
+        width: 90%;
+        bottom: 20px;
+    }
+
+    .open-chatbox-btn {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .chatbox-footer input {
+        width: 70%;
+    }
+}

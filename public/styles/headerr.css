@@ -1,0 +1,231 @@
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+    background-color: rgba(0, 0, 0, 0.7); 
+}
+
+.modal-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 30px;
+    font-weight: bold; 
+    color: #2c3e50; 
+    text-align: center;
+    margin: 0; 
+    text-transform: uppercase; 
+    letter-spacing: 1.5px; 
+    text-shadow: 0 0 5px greenyellow,
+                 0 0 10px greenyellow,
+                 0 0 20px greenyellow;
+    padding: 10px 0;
+    letter-spacing: 8px;
+}
+.modal-content {
+    background-color: #f8f9fa;
+    padding: 20px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 400px; 
+    max-width: 90%; 
+    position: relative; 
+    margin: 6% auto; 
+}
+
+.modal-content button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 10px; 
+    background: green; 
+    color: #fff; 
+    border: none; 
+    border-radius: 30px; 
+    cursor: pointer; 
+    font-size: 18px; 
+    width: 80%; 
+    transition: background-color 0.3s, transform 0.2s, background 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.modal-content button:hover {
+    background: linear-gradient(135deg, green, #3dfe0c); 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: center; /* Center the title horizontally */
+    align-items: center; /* Center items vertically if needed */
+    position: relative; /* Ensures the close button remains in place */
+}
+
+.input-group,
+.name-field,
+.cellphone-field {
+    margin-bottom: 10px; 
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="number"],
+select {
+    width: calc(100% - 20px); 
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 14px; 
+}
+
+.name-container {
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 10px; 
+}
+
+.name-field {
+    flex: 1; 
+    margin-right: 10px;
+    margin-bottom: -10px;
+}
+
+.name-field:last-child {
+    margin-right: 0; 
+}
+
+
+.cellphone-container {
+    display: flex; 
+    align-items: center;
+    margin-bottom: 10px; 
+}
+
+.cellphone-field input {
+    
+    width: 280px; 
+    padding: 10px;
+    box-sizing: border-box;
+} 
+.cellphone-field:last-child {
+    margin-right: 0; 
+}
+
+
+.input-group input {
+    width: 100%; 
+    padding: 10px; 
+    box-sizing: border-box; 
+    margin-bottom: 0px; 
+}
+
+.btn-login,
+.btn-signup {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px; 
+    width: 100%; 
+    transition: background-color 0.3s ease;
+}
+
+.btn-login:hover,
+.btn-signup:hover {
+    background-color: #0056b3;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 10px; 
+}
+
+.forgot-password{
+    text-decoration: none;
+    color:blue;
+}
+#showSignupModal,
+#showLoginModal {
+    color: #007bff; /* Bright blue color */
+    text-decoration: none; /* Remove underline */
+    font-weight: 500; /* Slightly bolder text */
+    transition: color 0.3s, text-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+.forgot-password:hover,
+#showSignupModal:hover,
+#showLoginModal:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle glow effect */
+    text-decoration: underline;
+}
+.checkbox-label {
+    font-size: 15;
+    margin-right: 10px; 
+    margin-bottom: 5px; 
+    display: flex; 
+    color: #555;
+    align-items: center; 
+}
+
+.checkbox-label a {
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+.checkbox-label a:hover {
+    text-decoration: underline;
+}
+
+.terms-link {
+    margin-left: 5px;
+}
+
+/* Responsive Success Message */
+.success-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    z-index: 1000;
+    font-size: 16px;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+
+.success-message.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+

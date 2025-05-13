@@ -1,0 +1,321 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #d5deef; 
+    color: #333; 
+    margin: 0;
+    padding: 0;
+}
+main {
+    padding: 100px 20px;
+}
+.hotel-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.hotel-title h1 {
+    font-size: 3.5rem;
+    color: #0c7075;
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4); 
+}
+
+.links-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.book-room-link,
+.booking-history-link {
+    text-align: left;
+}
+
+.book-room-btn,
+.booking-history-btn {
+    text-decoration: none;
+    background-color: #05161a;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.book-room-btn i,
+.booking-history-btn i {
+    margin-right: 8px;
+}
+
+.book-room-btn:hover,
+.booking-history-btn:hover {
+    background-color: #0f969c;
+    transform: translateY(-2px);
+}
+
+.filter-bar {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.filter-bar a {
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 8px 15px;
+    background-color: #0f969c;
+    color: white;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.filter-bar a:hover {
+    background-color: #0c7075;
+    transform: translateY(-2px);
+}
+
+.filter-bar a.active {
+    background-color: #294d61;
+    color: #fff;
+    font-weight: bold;
+}
+
+
+section {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #0f969c;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+table, th, td {
+    border: 1px solid #0f969c;
+    padding: 12px;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+th {
+    background-color: #05161a;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #d5deef;
+}
+
+tbody tr:hover {
+    background-color: #6da5c0;
+}
+
+
+td {
+    text-align: center;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead {
+        display: none; /* Hide table headers on small screens */
+    }
+
+    tr {
+        margin-bottom: 10px;
+        border: 1px solid #0f969c;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        border: none;
+        position: relative;
+        text-align: left;
+    }
+
+    td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: capitalize;
+        color: #05161a;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px; 
+    align-items: center; 
+}
+
+
+.cancel-btn, .delete-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+
+.cancel-btn {
+    background-color: #c82333;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #a71d2a;
+    transform: scale(1.05);
+}
+
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #c82333; 
+    transform: scale(1.05);
+}
+
+
+.cancel-btn i, .delete-btn i {
+    margin-right: 5px;
+}
+
+
+.no-bookings {
+    text-align: center;
+    font-weight: bold;
+    color: #0f969c;
+    padding: 20px;
+    font-size: 1rem;
+    background-color: #d5deef;
+    border: 1px solid #d5deef;
+    border-radius: 5px;
+}
+
+td {
+    text-align: center;
+}
+
+.status {
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.status.pending {
+    color: orange;
+}
+
+.status.confirmed {
+    color: #28a745;
+}
+
+.status.cancelled {
+    color: #dc3545;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    .hotel-title h1 {
+        font-size: 2.5rem;
+    }
+
+    .links-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-room-btn,
+    .booking-history-btn {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .filter-bar a {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+
+    section {
+        padding: 15px;
+        margin-top: 30px;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+
+    table {
+        font-size: 0.8rem;
+    }
+
+    th, td {
+        padding: 7px;
+    }
+
+    .cancel-btn,
+    .delete-btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    .no-bookings {
+        font-size: 0.9rem;
+    }
+}
+.complete {
+    font-weight: bold;
+    color: green;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.8), 0 0 20px rgba(0, 255, 0, 0.8), 0 0 30px rgba(0, 255, 0, 0.8); /* Glow effect */
+}

@@ -1,0 +1,235 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('background1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+/* Dark overlay effect */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+    z-index: 1;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px; /* Space between login-container and login-info-container */
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    z-index: 2;
+    position: relative;
+}
+.login-container {
+width: 500px;
+padding: 40px;
+background-color: #fff;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+text-align: center;
+position: relative;
+z-index: 2;
+display: flex;
+flex-direction: column; /* Ensure elements are stacked vertically */
+gap: 20px; /* Adds spacing between all child elements */
+}
+
+
+.login-container h2, .login-info-container h2 {
+color: #0f969c;
+margin-bottom: 20px;    
+}
+
+.login-container input[type="email"],
+.login-container input[type="password"] {
+width: calc(100% - 40px); /* Ensures full width with padding considered */
+padding: 12px 20px; /* Increase padding for a more spacious input */
+margin: 10px 0;
+border: 2px solid #ddd; /* Subtle border color */
+border-radius: 25px; /* Rounded corners */
+font-size: 16px;
+background-color: #fff; /* White background */
+transition: all 0.3s ease-in-out; /* Smooth transition for all changes */
+}
+
+/* Hover effect */
+.login-container input[type="email"]:hover,
+.login-container input[type="password"]:hover {
+border-color: #e74c3c; /* Change border color on hover */
+background-color: #fafafa; /* Light background color on hover */
+}
+
+/* Focus effect */
+.login-container input[type="email"]:focus,
+.login-container input[type="password"]:focus {
+border-color: #e74c3c; /* Red border on focus */
+background-color: #fafafa; /* Light background color on focus */
+box-shadow: 0 0 5px rgba(231, 76, 60, 0.5); /* Subtle red glow effect */
+outline: none; /* Remove default outline */
+}
+
+/* Placeholder styling */
+.login-container input[type="email"]::placeholder,
+.login-container input[type="password"]::placeholder {
+color: #bbb; /* Light gray placeholder text */
+font-style: italic; /* Italicize placeholder text */
+}
+
+/* Active input (when the input is focused or filled) */
+.login-container input[type="email"]:valid,
+.login-container input[type="password"]:valid {
+border-color: #0f969c; /* Green border for valid input */
+}
+
+/* Error input (if the input is invalid or contains errors) */
+.login-container input[type="email"]:invalid,
+.login-container input[type="password"]:invalid {
+border-color: #e74c3c; /* Red border for invalid input */
+}
+
+/* Empty input (matches the invalid red border) */
+.login-container input[type="email"]:placeholder-shown,
+.login-container input[type="password"]:placeholder-shown {
+border-color: #e74c3c; /* Red border for empty input */
+}
+
+.remember-me {
+margin-top:10px;
+margin-bottom: 20px; /* Adds space below the 'Remember Me' checkbox */
+}
+.login-container button {
+width: 50%; /* Decrease the width to 80% (or any desired percentage) */
+padding: 12px;
+background-color: #0f969c;
+color: #fff;
+border: none;
+border-radius: 25px;
+font-size: 16px;
+cursor: pointer;
+margin-bottom:20px;
+}
+
+.login-container button:hover {
+    background-color: #0c7075;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    font-size: 14px;
+    color: #555;
+}
+
+.footer a {
+    color: #e74c3c;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.social-login a {
+    font-size: 24px;
+    color: #444;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.social-login a:hover {
+    color: #333;
+}
+
+.or-separator {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.or-separator::before,
+.or-separator::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #ddd;
+    margin: 0 10px;
+}
+
+.login-info-container {
+max-width: 500px;
+font-family: Arial, sans-serif;
+position: relative;
+margin-top: -20%;
+padding: 30px;  /* Add padding for better spacing */
+}
+
+.login-info-container h2 {
+text-decoration: overline;
+text-decoration-thickness: 5px;
+color: #0f969c;  /* Red for the heading to make it more noticeable */
+font-size: 40px;
+margin-bottom: 80px;
+font-weight: 700;
+text-shadow: 2px 2px 5px black;  /* Adds a shadow to the text for contrast */
+}
+
+.login-info-container p {
+color: white;
+font-size: 20px;
+line-height: 1.6;
+margin-bottom: 20px;
+text-shadow: 2px 2px 5px black;
+}
+
+.login-prompt a {
+color: lightgreen;
+text-decoration: none;
+font-weight: 600;
+}
+
+.login-prompt a:hover {
+text-decoration: underline;
+}
+
+/* Position the error message directly below the input fields */
+.error-message {
+color: red;
+font-size: 14px;
+margin-top: 0px; /* Space above the error message */
+margin-bottom: 10px; /* Space below the error message */
+text-align: center; /* Align to the left */
+}
+
+/* Button for navigating to index.php */
+.back-button {
+position: absolute;
+top: 20px;
+left: 20px;
+background-color: #0f969c;
+color: white;
+border: none;
+border-radius: 5px;
+padding: 10px 20px;
+font-size: 16px;
+cursor: pointer;
+z-index: 400; /* Ensure the button is above the overlay */
+}
+
+.back-button:hover {
+background-color: #0c7075;
+}
