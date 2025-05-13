@@ -1,0 +1,209 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    
+}
+
+.button-container {
+    text-align: center; /* Center the button */
+    margin-top: 20px; /* Space above the button */
+}
+
+.modal-button {
+    background-color: #00d25b; /* Bootstrap primary button color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-button:hover {
+    background-color: green;
+    transform: translateY(-2px); /* Adds a slight "lift" effect */
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Adds shadow for hover effect */
+}
+
+
+.main-content {
+    height: 100vh; /* Full viewport height */
+    overflow-y: auto; /* Enable scrolling in the main content */
+    padding: 20px;
+}
+
+
+
+/* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+    background-color: rgba(0, 0, 0, 0.7);  
+}
+
+.modal-content {
+    background-color: #191c24;
+    margin: 5% auto; /* Centered with a margin */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%; /* Full width with some margin */
+    max-width: 1200px; /* Increase the maximum width */
+    max-height: 80%; /* Increase the maximum height */
+
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form Container Styles */
+
+.form-container h2 {
+    color: #00d25b; /* Change the color of the heading */
+    font-size: 28px; /* Increase the font size */
+    margin-bottom: 20px; /* Add some space below the heading */
+    text-align: center; /* Center the heading */
+    text-transform: uppercase; /* Make the text uppercase */
+    letter-spacing: 1px; /* Add spacing between letters */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add a subtle shadow for depth */
+}
+/* Form Layout */
+.form-layout {
+    display: flex;
+    flex-wrap: wrap; /* Wraps on smaller screens */
+    justify-content: space-between;
+    margin-bottom: 20px; /* Spacing below the layout */
+}
+/* Adjust column widths for better alignment */
+.form-column {
+    width: 48%; /* Set width for two columns */
+    margin-bottom: 15px; /* Space below columns */
+    margin-right: 20px;
+}
+/* Common styles for labels and inputs */
+.form-group {
+    display: flex; /* Flex layout for label and input */
+    align-items: center; /* Center align vertically */
+    margin-bottom: 15px; /* Space below each group */
+}
+/* Label Styles */
+label {
+    flex: 0 0 150px; /* Fixed width for labels */
+    color: #b0b0b0;
+    margin-right: 20px; /* Add space between label and input */
+}
+
+/* Input and Select Styling */
+input[type="text"],
+input[type="file"],
+input[type="number"],
+input[type="description"],
+input[type="features"],
+select {
+    flex: 1; 
+    padding: 10px;
+    background-color: #2c2c38;
+    border: 1px solid #444;
+    border-radius: 5px;
+    color: #fff;
+    height: 40px; /* Set a fixed height for inputs */
+    min-width: 300px; /* Set a minimum width for inputs */
+    max-width: 100%; /* Ensure inputs do not exceed the container width */
+    
+}
+
+/* Ensure inputs are well aligned and styled on focus */
+input[type="text"]:focus,
+select:focus,
+input[type="number"]:focus,
+input[type="description"]:focus,
+input[type="features"]:focus,
+input[type="file"]:focus {
+    outline: none;
+    border-color: #00d25b;
+    box-shadow: 0 0 5px rgba(0, 210, 91, 0.5);
+    background-color: #2f2f3e;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%; /* Full width on smaller screens */
+    }
+    .form-column {
+        width: 100%; /* Full width for columns on smaller screens */
+    }
+}
+
+
+
+/* Button Group */
+.group-button {
+    display: flex;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.submit-button {
+    padding: 10px;
+    background-color: #00d25b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 150px;
+    text-align: center;
+}
+
+.submit-button:hover {
+    background-color: green;
+    transform: translateY(-2px); /* Adds a slight "lift" effect */
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Adds shadow for hover effect */
+}
+
+/* Upload Button Styles */
+.upload-btn {
+    padding: 10px 20px;
+    background-color: #00d25b; /* Green background */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    margin-top: 10px; /* Margin above button */
+    width: 100%; /* Full width button */
+}
+
+.upload-btn:hover {
+    background-color: #1dbf5d; /* Darker green on hover */
+}
+
+.custom-file {
+    text-align: center; /* Center align the content */
+}
+

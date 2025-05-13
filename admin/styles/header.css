@@ -1,0 +1,520 @@
+body{
+    font-family: Arial, sans-serif;
+    overflow: hidden;   
+    background-color: black;
+    color: #fff;
+    z-index: 1000;
+    margin: 0;
+    padding: 0;
+}
+
+.main-content {
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: black;
+    min-height: 100vh;
+}
+
+
+.navbar {
+    background-color: #191c24;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbar h1 {
+    color: #fff;
+    margin: 0;
+}
+
+.navbar .actions {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .actions a {
+    color: #fff;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+/* Hide hamburger by default */
+.hamburger {
+    display: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.sidebar {
+    background-color: #191c24;
+    width: 250px;
+    height: 100vh;
+    position: absolute;
+    top: 60px; 
+    left: 0;
+    padding: 30px 15px;
+    box-sizing: border-box;
+    z-index: 999;
+}
+
+.sidebar h2 {
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.sidebar a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-bottom: 15px;
+    background-color: #191c24;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar a i {
+    margin-right: 10px;
+}
+
+.sidebar a:hover {
+    background-color: #343a40;
+}
+
+.sidebar a.active {
+    background-color: #343a40;
+    font-weight: bold;
+    color: #00d25b;
+}
+
+/* CSS for notification badge */
+.manage-bookings-link {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: #fff;
+}
+
+
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+    .navbar .actions {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .sidebar {
+        position: fixed;
+        left: -100%;
+        transition: left 0.3s ease;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .main-content {
+        padding-left: 0;
+    }
+}
+
+.notification-icon i,
+.settings-icon i,
+.chat-icon i {
+    font-size: 24px; /* Reduce icon size slightly for compactness */
+    position: relative;
+}
+
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Reduce gap between action icons further */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 40px;
+    background-color: #191c24; /* Dark background */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5); /* Darker shadow for depth */
+    z-index: 1;
+    border-radius: 5px; /* Rounded edges for modern look */
+}
+
+.dropdown-content a {
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    color: #fff; /* White text for contrast */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+.dropdown-content a:hover {
+    background-color: #343a40; /* Slightly lighter dark on hover */
+    color: #00d25b; /* Highlight text with a green shade */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.admin-name {
+    margin-left: 30px;
+    cursor: pointer;
+    color: #fff; /* Ensure consistency with the black theme */
+    font-weight: bold;
+}
+
+.admin-name i {
+    margin-left: 5px; /* Slight space between name and caret icon */
+}
+
+.dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #191c24; /* Arrow in dropdown color */
+}
+
+/* Toggle Chat Button */
+.toggle-chat {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #6200ea; /* Dark purple */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    z-index: 1000;
+}
+
+.toggle-chat:hover {
+    background: #3700b3; /* Darker purple */
+}
+
+/* Chat Container */
+.admin-chat-container {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(0%);
+    width: 350px;
+    background: #1e1e1e; /* Dark background for chat container */
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7); /* Darker shadow */
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+    font-family: 'Arial', sans-serif;
+    color: #f0f0f0; /* Light text color */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Timestamp styling */
+.user-btn .timestamp {
+    font-size: 12px;
+    color: #999;
+    white-space: nowrap; /* Prevent wrapping */
+    margin-left: auto; /* Push timestamp to the right */
+}
+/* User List Styling */
+.user-list {
+    padding: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+    background: #2a2a2a; /* Slightly lighter dark gray */
+    border-radius: 12px;
+}
+
+/* User Button (Each chat entry) */
+.user-btn {
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+    border: none;
+    background: #333; /* Dark gray for button background */
+    cursor: pointer;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #e0e0e0; /* Light text */
+}
+
+/* Hover effect on user button */
+.user-btn:hover {
+    background-color: #444; /* Slightly lighter gray on hover */
+
+}
+
+/* User info container */
+.user-btn .user-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* User name styling */
+.user-btn strong {
+    font-size: 16px;
+    color: #ffffff; /* White text for user name */
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Last message styling */
+.user-btn .last-message {
+    font-size: 14px;
+    color: #b0b0b0; /* Muted gray for last message */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+/* Chat Window */
+.chat-window {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    height: 450px;
+    background: #1c1c1c; /* Dark background */
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    animation: slideUp 0.3s ease-in-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.chatbox-body {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    max-height: 350px;
+    background-color:#2a2a2a;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column; /* Align messages vertically */
+}
+
+.last-message {
+    font-size: 14px;
+    color: #bbb; /* Lighter gray for last message */
+    margin: 5px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    display: block;
+}
+.timestamp {
+    font-size: 12px;
+    color: #888; /* Even lighter gray for timestamps */
+    text-align: center; /* Center the timestamp text */
+    width: 100%; /* Ensure it takes up the full width of the parent */
+    margin-bottom: 5px; /* Add some spacing between the timestamp and the message */
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column; /* Arrange timestamp and message vertically */
+    align-items: center; /* Center align the items (timestamp and message) */
+    margin: 10px 0; /* Spacing between messages */
+}
+
+.timestamp {
+    font-size: 12px;
+    color: #888; /* Light gray for timestamps */
+    text-align: center; /* Centers the timestamp text */
+    display: block; /* Ensures the timestamp is treated as a block element to be centered above the message */
+    margin-bottom: 4px; /* Adds space between the timestamp and the message bubble */
+}
+
+
+.message-container .timestamp {
+    font-size: 12px;
+    color: #888; /* Light gray color for timestamps */
+    margin-bottom: 2px; /* Add spacing below the timestamp */
+    align-self: flex-start; /* Ensure the timestamp aligns with the message direction */
+}
+
+.message-container .admin-message {
+    align-self: flex-end; /* Align admin messages to the right */
+    text-align: right;
+}
+
+.message-container .user-message {
+    align-self: flex-start; /* Align user messages to the left */
+    text-align: left;
+}
+
+.message {
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    max-width: 80%; /* Limit message width */
+    word-wrap: break-word;
+}
+
+.user-message {
+    background: #333; /* Dark gray background for user messages */
+    color: white;
+}
+
+.admin-message {
+    background: #444; /* Slightly lighter gray for admin messages */
+    color: white;
+}
+.chat-input {
+    display: flex;
+    padding: 12px;
+    background: #333; /* Dark input area */
+    border-top: 1px solid #555; /* Dark border */
+    align-items: center;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #555; /* Darker input border */
+    border-radius: 8px;
+    margin-right: 10px;
+    font-size: 14px;
+    background: #2a2a2a; /* Dark background for input */
+    color: #fff; /* White text for input */
+}
+
+/* Ensure inputs are well aligned and styled on focus */
+.chat-input input[type="text"]:focus {
+    outline: none;
+    border-color: #00d25b;
+    box-shadow: 0 0 5px rgba(0, 210, 91, 0.5);
+    background-color: #2f2f3e;
+}
+
+
+/* New class for the 'Send' button */
+.send-btn {
+    padding: 10px 15px;
+    background: #6200ea; /* Dark purple for button */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.send-btn:hover {
+    background: #3700b3; /* Darker purple on hover */
+}
+
+.close-buttonn {
+    background: black;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Chatbox Header */
+.chatbox-header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+    font-size: 16px;
+}
+
+.chatbox-header h3 {
+    margin: 0;
+}
+.chatbox-header h3,
+.close-buttonn {
+    font-family: 'Arial', sans-serif;
+}
+
+
+/* For when the chatbox is visible */
+.chatbox-container.show {
+    opacity: 1;
+    transform: translateY(0); /* Slide into place */
+}
+/* Style the scrollbar */
+.chatbox-body::-webkit-scrollbar {
+    width: 6px;  /* Width of the scrollbar */
+}
+
+.chatbox-body::-webkit-scrollbar-track {
+    background-color: #333;  /* Background color of the track */
+    border-radius: 10px;  /* Rounded corners for the track */
+}
+
+.chatbox-body::-webkit-scrollbar-thumb {
+    background-color: black;  /* Color of the scrollbar thumb */
+    border-radius: 10px;  /* Rounded corners for the thumb */
+    border: 2px solid#333;
+}
+
+.chatbox-body::-webkit-scrollbar-thumb:hover {
+    background-color: #b68d29;  /* Darker color when hovered */
+}

@@ -1,0 +1,210 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text color for contrast */
+}
+
+/* Toggle Chat Button */
+.toggle-chat {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #6200ea; /* Dark purple */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    z-index: 1000;
+}
+
+.toggle-chat:hover {
+    background: #3700b3; /* Darker purple */
+}
+
+/* Chat Container */
+.admin-chat-container {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 700px;
+    background: #1c1c1c; /* Dark background for chat container */
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.user-list {
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    background: #2a2a2a; /* Dark gray background */
+    border-radius: 12px;
+}
+
+.user-btn {
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+    border: none;
+    background: #333; /* Darker background for buttons */
+    cursor: pointer;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-btn:hover {
+    background: #444; /* Slightly lighter gray on hover */
+}
+
+.user-btn strong {
+    font-size: 16px;
+    color: #fff; /* White text for user name */
+}
+
+.last-message {
+    font-size: 14px;
+    color: #bbb; /* Lighter gray for last message */
+    margin: 5px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.timestamp {
+    font-size: 12px;
+    color: #888; /* Even lighter gray for timestamps */
+}
+
+/* Chat Window */
+.chat-window {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    height: 450px;
+    background: #1c1c1c; /* Dark background */
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    animation: slideUp 0.3s ease-in-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#chat-content {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #2a2a2a; /* Dark gray background */
+    border-radius: 10px;
+}
+
+.message {
+    margin: 10px 0;
+    padding: 8px 12px;
+    border-radius: 10px;
+}
+
+.user-message {
+    background: #333; /* Dark background for user messages */
+    text-align: left;
+    margin-left: 5px;
+    font-size: 14px;
+    color: #ddd; /* Light text for user messages */
+}
+
+.admin-message {
+    background: #444; /* Slightly lighter background for admin messages */
+    text-align: right;
+    margin-right: 5px;
+    font-size: 14px;
+    color: #fff; /* White text for admin messages */
+}
+
+.chat-input {
+    display: flex;
+    padding: 12px;
+    background: #333; /* Dark input area */
+    border-top: 1px solid #555; /* Dark border */
+    align-items: center;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #555; /* Darker input border */
+    border-radius: 8px;
+    margin-right: 10px;
+    font-size: 14px;
+    background: #2a2a2a; /* Dark background for input */
+    color: #fff; /* White text for input */
+}
+
+.chat-input button {
+    padding: 10px 15px;
+    background: #6200ea; /* Dark purple for button */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.chat-input button:hover {
+    background: #3700b3; /* Darker purple on hover */
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.close-btn:hover {
+    background-color: #d32f2f;
+}
